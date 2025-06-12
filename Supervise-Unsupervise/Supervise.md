@@ -1,13 +1,15 @@
-# 🧠 Supervised Learning: Overview and Examples
+# 🧠 Supervised Learning Overview and Examples
 
 ## 📌 What is Supervised Learning?
 ![alt text](image.png)
 
-                    x (input) -> y (output label)
-            learn from being given  **right answer**
+```
+               x (input) -> y (output label)
+            learn from being given  right answer
+```
 
 ## Definition
-Supervised learning is a type of machine learning where algorithms learn **input-to-output (x → y) mappings from `labeled` examples**. The algorithm is trained on data that includes both the input (x) and the correct output (y), enabling it to predict outputs for new, unseen inputs.
+Supervised learning is a type of machine learning where algorithms learn **input-to-output (x → y) mappings from labeled examples**. The algorithm is trained on data that includes both the input (x) and the correct output (y), enabling it to predict outputs for new, unseen inputs.
 > 💡 **Definition**: supervised learning algorithms learn to predict input, output or X to Y mapping.
 
 ## Key Characteristics
@@ -18,16 +20,17 @@ Supervised learning is a type of machine learning where algorithms learn **input
 
 ## 🧪 Real-World Applications
 
-| Input (`x`)             | Output (`y`)         | Use Case                         |
-|-------------------------|----------------------|----------------------------------|
-| Email                   | Spam or Not Spam     | Spam Filtering                   |
-| Audio Clip              | Text Transcript      | Speech Recognition               |
-| English Sentence        | Translated Sentence  | Machine Translation              |
-| Ad + User Info          | Click or Not         | Online Advertising               |
-| Sensor Data + Image     | Other Car Positions  | Self-Driving Cars                |
-| Product Image           | Defect or Not        | Visual Inspection in Manufacturing |
-
+| Application         | Input (`x`)                  | Output (`y`)               | Description                          |
+|---------------------|------------------------------|----------------------------|--------------------------------------|
+| Spam Detection      | Email content                | Spam / Not Spam            | Classifies emails                    |
+| Speech Recognition  | Audio                        | Text transcript            | Converts audio to text               |
+| Machine Translation | English text                 | Text in another language   | Translates language                  |
+| Online Ads          | Ad info + user info          | Click / No Click           | Predicts ad clicks                   |
+| Self-Driving Cars   | Images + sensors             | Car positions              | Detects surrounding vehicles         |
+| Visual Inspection   | Product image                | Defect present / not       | Detects flaws in manufacturing       |
+| Housing Prices      | House size (sqft)            | Price ($)                  | Predicts numeric price               |
 ---
+
 
 ## 🏠 Example: Predicting Housing Prices
 
@@ -48,16 +51,39 @@ ref : https://www.superannotate.com/blog/supervised-learning-and-other-machine-l
 
 ## 🧩 Types of Supervised Learning
 
-1. **Regression**
-   - Predict **continuous values** (e.g., house prices).
-   - Output can be any number.
+**1. Regression**
+- **Predicts:** Continuous numerical values (infinite possible outputs )
+- **Example Applications:**  
+  - 🏠 Housing price prediction (size → price)  
+  - 📈 Stock market forecasting  
+- **Key Insight:**  
+  - Fits lines/curves to infinite possible outputs  
+  - Example: Predicting $150K vs $200K for a 750 sq.ft house
+- **Key Feature**:
+   - Output can be **any number** (e.g., $150,000, $175,500).
 
+**2. Classification**  
+- **Predicts:** Discrete categories  
+- **Example Applications:**  
+  - 🩺 Medical diagnosis (tumor size → benign[0]/malignant[1])  
+  - 🛡️ Spam detection (email → spam/not spam)  
+- **Key Insight:**  
+  - Binary (2 classes) or multi-class (>2 classes)  
+  - Uses decision boundaries (e.g., separating benign/malignant tumors)  
+- **Key Feature**:
+   - Output is from a **finite set** of possible values (e.g., 0, 1, 2).
 
-   
+---
 
-2. **Classification**
-   - Predict **discrete categories** (e.g., spam vs. not spam).
-   - Will be covered in the next video.
+## Key Differences: Regression vs Classification
+| Feature | Regression | Classification |
+|---------|------------|----------------|
+| **Output Type** | Continuous (real numbers) | Discrete (categories)    |
+| **Output Space** | Infinite numbers (e.g., 150K, 200K) | Finite categories (e.g., 0/1, cat/dog) |
+| **Model Goal** | Fit optimal line/curve | Find decision boundary |
+| **Evaluation** | Mean squared error | Accuracy/Precision |
+| **Example** | House price prediction | Tumor diagnosis  |
+
 
 
 unsup he data comes only with inputs x but not output labels y, and the algorithm has to find some structure or some pattern or something interesting in the data.
