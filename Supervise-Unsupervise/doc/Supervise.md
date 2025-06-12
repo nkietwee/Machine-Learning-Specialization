@@ -1,7 +1,7 @@
 # 🧠 Supervised Learning Overview and Examples
 
 ## 📌 What is Supervised Learning?
-![alt text](image.png)
+![alt text](../img/image.png)
 
 ```
                x (input) -> y (output label)
@@ -16,7 +16,6 @@ Supervised learning is a type of machine learning where algorithms learn **input
 - Requires **labeled data** (input-output pairs).
 - Goal: Predict outputs accurately for new inputs.
 
----
 
 ## 🧪 Real-World Applications
 
@@ -29,12 +28,11 @@ Supervised learning is a type of machine learning where algorithms learn **input
 | Self-Driving Cars   | Images + sensors             | Car positions              | Detects surrounding vehicles         |
 | Visual Inspection   | Product image                | Defect present / not       | Detects flaws in manufacturing       |
 | Housing Prices      | House size (sqft)            | Price ($)                  | Predicts numeric price               |
----
 
 
 ## 🏠 Example: Predicting Housing Prices
 
-![alt text](image-2.png)
+![alt text](../img/image-2.png)
 ref : https://medium.com/@nafizaali153/predicting-house-prices-with-linear-regression-with-java-a7784bf45f3d
 
 - **Goal**: Predict house price based on its size (in sq. ft).
@@ -44,12 +42,11 @@ ref : https://medium.com/@nafizaali153/predicting-house-prices-with-linear-regre
 - **Prediction Task**: Estimate price of a new house (e.g., 750 sq. ft).
 - **Insight**: Algorithms can fit simple (line) or complex (curve) models depending on data.
 
----
-
-![alt text](image-1.png)
-ref : https://www.superannotate.com/blog/supervised-learning-and-other-machine-learning-tasks
 
 ## 🧩 Types of Supervised Learning
+
+![alt text](../img/image-1.png)
+ref : https://www.superannotate.com/blog/supervised-learning-and-other-machine-learning-tasks
 
 **1. Regression**
 - **Predicts:** Continuous numerical values (infinite possible outputs )
@@ -73,8 +70,6 @@ ref : https://www.superannotate.com/blog/supervised-learning-and-other-machine-l
 - **Key Feature**:
    - Output is from a **finite set** of possible values (e.g., 0, 1, 2).
 
----
-
 ## Key Differences: Regression vs Classification
 | Feature | Regression | Classification |
 |---------|------------|----------------|
@@ -83,7 +78,4 @@ ref : https://www.superannotate.com/blog/supervised-learning-and-other-machine-l
 | **Model Goal** | Fit optimal line/curve | Find decision boundary |
 | **Evaluation** | Mean squared error | Accuracy/Precision |
 | **Example** | House price prediction | Tumor diagnosis  |
-
-
-
-unsup he data comes only with inputs x but not output labels y, and the algorithm has to find some structure or some pattern or something interesting in the data.
+---
