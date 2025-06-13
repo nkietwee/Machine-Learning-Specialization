@@ -4,6 +4,7 @@
 
 ###  Definition
 ![alt text](image.png)
+ref : https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/
 **Linear regression** is a supervised learning algorithm that models the relationship between:
 - One or more independent variables (features, denoted as X)
 - A dependent variable (target, denoted as y) 
