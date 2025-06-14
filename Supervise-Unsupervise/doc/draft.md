@@ -1,0 +1,3 @@
+- How model work ?
+- What is definition of model ?
+- variable 

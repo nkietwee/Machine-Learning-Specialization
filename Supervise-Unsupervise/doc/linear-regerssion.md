@@ -29,15 +29,9 @@ by fitting a linear equation to the observed data.
 
 
 
-### 2. Key Notation
+### Key Notation
 
-# Housing  Dataset
-
-## Variables
-- **x**: House size (in square feet)
-- **y**: Price (in thousands of dollars)
-
-## Sample Data
+#### Example Housing  Dataset
 
 | Index | Size (ft²) | Price ($1000's) |
 |-------|------------|----------------|
@@ -48,9 +42,8 @@ by fitting a linear equation to the observed data.
 | ...   | ...        | ...            |
 | 47    | 3210       | 870            |
 
-## Example Instance
-- **x** = 2104 (size in ft²)
-- **y** = 400 (price in $1000's)
+## Variables
+
 
 | Symbol | Meaning | Example |
 |--------|---------|---------|
