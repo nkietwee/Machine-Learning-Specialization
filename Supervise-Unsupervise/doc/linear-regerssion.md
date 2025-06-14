@@ -119,7 +119,14 @@ This is called the **squared error cost function**, and it measures the average 
 
 ---
 
+
+The goal of linear regression is to find the parameters w or w and b that results in the smallest possible value for the cost function J.
+
+
 # Cost Function in Linear Regression  
+
+![alt text](../img/image-7.png)
+
 
 ## **Purpose of Cost Function**  
 - Measures how well the model (**`f(x) = w·x + b`**) fits the training data.  
