@@ -126,37 +126,51 @@ The **cost function** is a mathematical tool used to **quantify the error betwee
 
 # Gradient Descent Overview
 
-## Introduction
-- Gradient descent is a systematic algorithm to **find optimal parameters (w, b) that minimize the cost function J(w, b).**
-- **It's widely used in machine learning, including linear regression and advanced neural networks (deep learning).**
+![alt text](image-3.png)
 
-## Key Concepts
-1. **General Applicability**:
-   - Works for any function, not just linear regression cost functions.
-   - Can handle multiple parameters (e.g., w₁, w₂, ..., wₙ, b).
+# Introduction to Gradient Descent
 
-2. **Initialization**:
-   - Start with initial guesses (commonly 0 for w and b in linear regression).
-   - Iteratively adjust parameters to reduce J(w, b).
+- In previous lessons, we visualized the **cost function** \( J(w, b) \) and how different values of **\( w \)** and **\( b \)** affect it. (look at graph)
+- A more systematic method to find the values of \( w \) and \( b \) that minimize the cost is needed → **Gradient Descent**.
 
-3. **Intuition**:
-   - Visualize the cost function as a hilly terrain.
-   - Goal: Efficiently descend to the lowest point (minimum) by taking steps in the **direction of steepest descent**.
 
-4. **Process**:
-   - At each point, compute the best direction to take a small step downhill.
-   - Repeat until reaching a (local) minimum.
+#  What is Gradient Descent?
 
-5. **Local Minima**:
-   - Depending on the starting point, gradient descent may converge to different local minima.
-   - Example: Two valleys (local minima) with different outcomes based on initialization.
+- A general optimization algorithm used across **machine learning**, including:
+  - **Linear regression**
+  - **Neural networks (deep learning)**
+- Can minimize **any cost function**, not just those with two parameters.
 
-## Next Steps
-- The next video will cover the **mathematical implementation** of gradient descent.
+# How It Works
+![alt text](image-4.png)
+1. **Start with initial guesses** for parameters (e.g., \( w = 0 \), \( b = 0 \)).
+2. **Iteratively adjust** \( w \) and \( b \) to reduce the cost.
+3. Continue updating until reaching a **minimum** value of \( J(w, b) \).
 
+# Visualization Metaphor
+
+- Think of the cost surface \( J(w, b) \) as a **hilly landscape**.
+- Gradient descent is like **walking downhill**:
+  - Look in all directions.
+  - Take a **baby step** in the steepest descent direction.
+  - Repeat until reaching a **valley bottom** (local minimum).
+
+# Local Minima Insight
+
+- Some cost functions (e.g., in neural networks) may have **multiple local minima**.
+- Gradient descent may end up in **different valleys** depending on the starting point.
+- In **linear regression with squared error**, the cost function is **convex**:
+  - Always has **one global minimum**.
+
+# Summary
+
+- Gradient descent is a key algorithm in ML for **minimizing cost functions**.
+- It works by taking steps in the direction of the **steepest descent**.
+- Choice of initial values can affect which **local minimum** you reach.
+- Sets the foundation for understanding and implementing learning algorithms.
 
 # Gradient Descent Implementation
-
+![alt text](image-5.png)
 ## Core Algorithm
 - **Parameter Update Rules**:
 \[
@@ -167,12 +181,13 @@ The **cost function** is a mathematical tool used to **quantify the error betwee
   b = b - \alpha \frac{\partial}{\partial b} J(w,b)
 \]
 
-
 ### **Key Components**
 #### **Learning Rate (α)**
 - Controls step size during optimization.
 - Too small (e.g., 0.001): Slow convergence.
 - Too large (e.g., 1.0): Risk of overshooting minima.
+
+> Convergence it mean **near local minima**
 
 #### Partial Derivatives
 
@@ -383,8 +398,9 @@ w := w - α * 0 → w := w
 ---
 
 # Gradient Descent Learning Rate Analysis
+- The **learning rate (α)** controls the step size in parameter updates.
 
-## Core Update Rule
+
 `w := w - α * (d/dw J(w))`
 
 ## Learning Rate (α) Effects
