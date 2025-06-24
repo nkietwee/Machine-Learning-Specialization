@@ -81,7 +81,7 @@ by fitting a linear equation to the observed data.
 
 # 📉 Cost Function in Linear Regression
 
-The **cost function** is a mathematical tool used to quantify the error between predicted outputs and actual target values in a regression model. It serves as a measure of how well the model's parameters fit the training data.
+The **cost function** is a mathematical tool used to **quantify the error between predicted outputs and actual target values** in a regression model. It serves as a measure of how well the model's parameters fit the training data.
 
 - **Purpose**: To evaluate the performance of the model by measuring the discrepancy between predicted and actual outcomes.
 - **Objective**: Minimize the cost function in order to optimize the model parameters and improve prediction accuracy.
@@ -128,7 +128,7 @@ The **cost function** is a mathematical tool used to quantify the error between 
 
 ## Introduction
 - Gradient descent is a systematic algorithm to **find optimal parameters (w, b) that minimize the cost function J(w, b).**
-- It's widely used in machine learning, including linear regression and advanced neural networks (deep learning).
+- **It's widely used in machine learning, including linear regression and advanced neural networks (deep learning).**
 
 ## Key Concepts
 1. **General Applicability**:
@@ -455,8 +455,8 @@ Start ● → → → → Minimum
 ## 📘 Linear Regression Summary
 
 **🔹 Model:**  
-\[
 f_{w,b}(x) = wx + b
+\[
 \]
 
 **🔹 Parameters:**  
