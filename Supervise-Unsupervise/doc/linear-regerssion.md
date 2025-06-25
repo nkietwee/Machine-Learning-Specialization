@@ -445,13 +445,51 @@ Where:
 | Gradient Descent Convergence | Always to global minimum         | May get stuck in local minimum   |
 | Example                       | Linear Regression (Squared Loss) | Neural Networks, Complex Models  |
 
-## 🎉 Conclusion
+# 🎬 Gradient Descent in Action – Summary
 
-You now:
-- Understand the connection between linear regression, cost function, and gradient descent.
-- Know how to compute the gradient terms.
-- Are ready to implement gradient descent for training linear regression models.
+---
+![alt text](image-9.png)
 
-👉 **Next**: See the algorithm in action in the final video.
+## 🔧 Visual Setup
+
+- **Top Left**: Plot of the linear regression model and training data.
+- **Top Right**: Contour plot of the cost function \( J(w, b) \).
+- **Bottom**: 3D surface plot of the same cost function.
+
+---
+
+
+
+## 🪜 Gradient Descent Steps
+
+- Each **step** of gradient descent:
+  - Moves the point \( (w, b) \) on the cost surface.
+  - Slightly improves the line fit to the data.
+- As steps continue:
+  - The cost \( J(w, b) \) **decreases**.
+  - Parameters follow a **trajectory** toward the **global minimum**.
+  - The fitted line becomes more accurate.
+
+---
+
+## 🎯 Final Outcome
+
+- Gradient descent eventually reaches the **global minimum**.
+- At the global minimum:
+  - The straight line is a **good fit** for the data.
+  - Model can now make **predictions**.
+    - Example: For a 1250 sq. ft. house, predict ≈ \$250,000.
+
+---
+
+## 📦 Batch Gradient Descent
+![alt text](image-10.png)
+- This version of gradient descent is called **batch gradient descent**.
+- Why?
+  - Because **every step** uses **all training examples** to compute the gradient.
+- Term comes from:
+  - Processing the **entire batch** (dataset) during each update.
+
+---
 
 
