@@ -238,17 +238,12 @@ Update Parameters → Check Convergence → Stop
 ```
 
 
-![alt text](image-2.png)
 
 # 🔍 Gradient Descent – Deeper Intuition
+![alt text](image-2.png)
 
 This lesson dives deeper into **how gradient descent works** and why it makes intuitive sense.
 
----
-
-## 🧮 Gradient Descent Recap
-
-- **Update rule**:
   
 \[
   w = w - \alpha \frac{\partial}{\partial w} J(w,b)
@@ -258,215 +253,96 @@ This lesson dives deeper into **how gradient descent works** and why it makes in
 - **α (alpha)**: the **learning rate**, controls the size of the step taken.
 - **∂J/∂w**: the **derivative (or partial derivative)** of the cost function, indicating the **slope** at a given point.
 
----
 
-## 📉 What the Derivative Means
 
-- A **derivative** is the slope of the **tangent line** at a given point on the cost curve.
-- The slope helps determine the **direction** and **size** of the parameter update.
+> - A **derivative(tells you the direction to move)** is the slope of the **tangent line at current w** 
+> - The slope helps determine the **direction** and **size** of the parameter update.
 
 ---
 
-## 🧭 Intuition from Two Scenarios
+##  Intuition from Two Scenarios
 
 1. **Starting on the right side of the curve** (slope > 0):
  - Derivative is **positive**
- - `w := w - α * (positive)` → w **decreases**
+ - `w = w - α * (positive)` → w **decreases**
  - You move **left**, toward the **minimum** of the cost function
 
 2. **Starting on the left side of the curve** (slope < 0):
  - Derivative is **negative**
- - `w := w - α * (negative)` → w **increases**
+ - `w = w - α * (negative)` → w **increases**
  - You move **right**, toward the **minimum**
 
-✅ In both cases, **gradient descent moves you toward the minimum**, reducing the cost.
+✅ In both cases, **gradient descent moves you toward the minimum (that reduce the cost function)**, reducing the cost.
 
 ---
-
-## 🔧 Why This Works
-
-- The **derivative** tells you the direction to move
-- The **learning rate** controls how far to move
-- Together, the update rule makes sure you take steps **that reduce the cost function**
----
-other version
-# Gradient Descent Intuition
-
-## Core Concept
-Gradient descent iteratively adjusts parameters (w) to minimize cost function J(w) using:
-`w := w - α * (d/dw J(w))`
-
-Where:
-- `α` = learning rate (step size)
-- `d/dw J(w)` = derivative (slope of tangent line at current w)
-
-## Key Insights
-
-### 1. Derivative's Role
-- **Positive slope** → Decreases w (moves left)
-- **Negative slope** → Increases w (moves right)
-- Always pushes w toward the minimum of J(w)
-
-### 2. Visualization
-- With 1 parameter (w), J(w) is a 2D curve
-- Tangent lines show:
-  - Steepness (magnitude of derivative)
-  - Direction (sign of derivative)
-
-### 3. Behavior Examples
-- **Right-side initialization**:
-  - Positive derivative → w decreases → moves toward minimum
-- **Left-side initialization**:
-  - Negative derivative → w increases → moves toward minimum
-
-### 4. Learning Rate (α)
-- Controls step size:
-  - Too small → Slow convergence
-  - Too large → Risk of overshooting
-- Will be explored deeper in next video
-
-## Why It Works
-The derivative automatically guides updates in the direction that reduces cost, while α determines how aggressively we follow that direction.
-
-## Next Topic
-Detailed examination of learning rate α selection and its impact.
-
 
 ## Learning rate
 
-# 🚀 Understanding the Learning Rate (α) in Gradient Descent
+
+
+# 🧠 Understanding Learning Rate (α) in Gradient Descent
+![alt text](<Screenshot 2568-06-25 at 15.16.01.png>)
+
+## 🔁 Gradient Descent Update Rule
+
+\[
+w := w - \alpha \cdot \frac{d}{dw}J(w)
+\]
+
+- **\( \alpha \)**: Learning rate — controls how big each update step is.
+- **\( \frac{d}{dw}J(w) \)**: Derivative — the slope of the cost function at \( w \).
 
 ---
 
-## 📌 Importance of α
+## 🚶‍♂️ Case 1: Learning Rate Too Small
 
-- The **learning rate (α)** controls the step size in parameter updates.
-- Choosing **α poorly** can:
-  - Make training **very slow** (if too small)
-  - Cause the algorithm to **diverge or oscillate** (if too large)
-
----
-
-## 🔎 Case 1: α Too Small
-
-- **Example**: α = 0.0000001
-- **Effect**:
-  - Takes **tiny baby steps**
-  - Moves **slowly toward the minimum**
-  - **Works**, but takes **many iterations**
+- Example: \( \alpha = 0.0000001 \)
+- Derivative is multiplied by a tiny number.
+- **Very small update steps**.
+- ✅ Gradient descent **still converges**, but **very slowly**.
+- ⏳ Requires **many iterations** to reach the minimum.
 
 ---
 
-## ⚠️ Case 2: α Too Large
+## 🏃‍♂️ Case 2: Learning Rate Too Large
 
-- Takes **huge steps**, potentially **overshooting** the minimum.
-- Can cause the cost to **increase** instead of decrease.
-- May result in:
-  - **Oscillating** updates
-  - **Failure to converge**
-  - Even **divergence**
+- Example: \( \alpha = 1 \) or more.
+- Causes **very large jumps**.
+- May **overshoot** the minimum and increase cost.
+- ❌ Can **diverge** — fail to converge to a minimum.
 
----
+![alt text](<Screenshot 2568-06-25 at 15.22.44.png>)
+## 🧘‍♂️ Case 3: Already at a Local Minimum
 
-## ✅ Case 3: At the Minimum
+- At the minimum, the derivative is zero:
+  \[
+  \frac{d}{dw}J(w) = 0
+  \]
+- Update becomes:
+  \[
+  w := w - \alpha \cdot 0 = w
+  \]
+- ✅ No update is made — stays at the minimum.
 
-- At a **local minimum**, the derivative is **zero**.
-- Update rule becomes:
+![alt text](<Screenshot 2568-06-25 at 15.23.00.png>)
+## 📉 Automatic Step Size Reduction
 
-w := w - α * 0 → w := w
-
-
-- No change in parameter → stays at the minimum (which is correct behavior)
-
----
-
-## 🧠 Self-Correcting Behavior
-
-- As gradient descent approaches a **local minimum**, the **derivative shrinks**.
-- Smaller derivative → **smaller update step**, even with a fixed α.
-- This causes gradient descent to **naturally slow down** near the minimum and stabilize.
+- Even with fixed \( \alpha \), step size shrinks near the minimum:
+  - As \( \frac{d}{dw}J(w) \to 0 \), the update step becomes small.
+- This behavior **naturally slows down** convergence near the optimal point.
 
 ---
 
-## 🔁 Final Recap
+## 📊 Summary Table
 
-- Gradient descent:
-- Works **with a fixed α**
-- Automatically **adjusts step size** through the derivative
-- Can minimize **any cost function**, not just mean squared error
+| Learning Rate (α)      | Behavior                          | Outcome                         |
+|------------------------|------------------------------------|----------------------------------|
+| **Too Small (≪ 1)**    | Very tiny updates                  | ✅ Converges, but slowly         |
+| **Just Right**         | Balanced step size                 | ✅ Efficient convergence         |
+| **Too Large (≫ 1)**    | Overshooting, divergence           | ❌ May never converge            |
+| **At Local Minimum**   | Derivative = 0                     | ✅ No change (as desired)        |
 
 ---
-
-# Gradient Descent Learning Rate Analysis
-- The **learning rate (α)** controls the step size in parameter updates.
-
-
-`w := w - α * (d/dw J(w))`
-
-## Learning Rate (α) Effects
-
-### 1. α Too Small (e.g., 0.0000001)
-- **Behavior**: Extremely small steps
-- **Result**:
-  - Slow convergence
-  - Many iterations needed
-- **Visualization**:
-Start ● → · → · → · → · → Minimum
-(Tiny baby steps)
-
-
-### 2. α Too Large
-- **Behavior**: Overshooting steps
-- **Result**:
-- Cost may increase
-- Potential divergence
-- **Visualization**:
-Start ● → ↗ → ↘ → ↗ → ↘ (Oscillations)
-
-
-### 3. Optimal α
-- **Behavior**: Balanced steps
-- **Result**:
-- Steady convergence
-- Reaches minimum efficiently
-- **Visualization**:
-Start ● → → → → Minimum
-
-
-## Special Case: At Local Minimum
-- **Derivative**: d/dw J(w) = 0
-- **Update**: w remains unchanged
-- **Implication**: Algorithm naturally stops at minima
-
-## Adaptive Step Size Property
-- **Near Minimum**:
-- Derivatives decrease → smaller steps
-- Automatic "slowdown" effect
-- **Benefit**: Fixed α can still work effectively
-
-## Practical Guidelines
-| Scenario | Solution | Typical Values |
-|----------|----------|----------------|
-| Slow convergence | Increase α | 0.01 → 0.1 |
-| Divergence | Decrease α | 0.1 → 0.001 |
-| Good convergence | Maintain α | 0.01-0.1 |
-
-## Key Insights
-1. α controls step size and convergence speed
-2. Gradient descent automatically adjusts effective step size near minima
-3. Finding good α requires experimentation
-
-> **Next**: Applying gradient descent to linear regression cost function
-
-
-
-
-
-
-
-
-
-
 
 ## 📘 Linear Regression Summary
 
@@ -489,9 +365,3 @@ J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)^
 \[
 \min_{w, b} J(w, b)
 \]
-
-
-
-
-
-
