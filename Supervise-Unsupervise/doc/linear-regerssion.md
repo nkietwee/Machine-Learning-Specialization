@@ -344,24 +344,114 @@ w := w - \alpha \cdot \frac{d}{dw}J(w)
 
 ---
 
-## 📘 Linear Regression Summary
 
-**🔹 Model:**  
-f_{w,b}(x) = wx + b
-\[
-\]
+# 🔁 Gradient Descent for Linear Regression: Summary
 
-**🔹 Parameters:**  
-\[
-w, \; b
-\]
+---
 
-**🔹 Cost Function:**  
-\[
-J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)^2
-\]
+## ✅ Goal
 
-**🔹 Objective:**  
-\[
-\min_{w, b} J(w, b)
-\]
+To **train a linear regression model** using **gradient descent** with the **squared error cost function**, enabling the model to fit a straight line to the training data.
+
+
+## 🧮 Key Components
+
+### 1. Linear Regression Model
+
+$$
+f(w, b, x) = w \cdot x + b
+$$
+
+### 2. Squared Error Cost Function
+
+$$
+J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} \left(f(w, b, x^{(i)}) - y^{(i)}\right)^2
+$$
+
+### 3. Gradient Descent Algorithm
+![alt text](image-6.png)
+
+Update rules for minimizing the cost function:
+
+$$
+w := w - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left(f(w, b, x^{(i)}) - y^{(i)}\right) \cdot x^{(i)}
+$$
+
+$$
+b := b - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left(f(w, b, x^{(i)}) - y^{(i)}\right)
+$$
+
+Where:
+- \( \alpha \) is the **learning rate**
+- \( m \) is the number of training examples
+
+---
+
+## 📐 Why These Derivatives?
+
+- Derived using **calculus**, by taking partial derivatives of the cost function with respect to \( w \) and \( b \).
+- The \( \frac{1}{2} \) in the cost function helps cancel the \( 2 \) from the derivative of the squared term, simplifying the result.
+
+---
+
+## 📉 Convergence and Local Minima
+
+
+- The **squared error cost function** is a **convex function** (bowl-shaped).
+- Convex functions have only **one global minimum** — no local minima to get stuck in.
+- Therefore, gradient descent is **guaranteed to converge** to the global minimum, **if the learning rate is chosen properly**.
+
+---
+
+
+
+# 🧠 Comparing Convex and Non-Convex Cost Functions
+![alt text](image-7.png)
+![alt text](image-8.png)
+---
+
+## 🟦 Image 1: Squared Error Cost – Convex Function
+
+### ✅ Characteristics:
+- **Shape**: Smooth, **bowl-shaped** surface.
+- **Function Type**: **Convex**
+- **Global Minimum**: Clearly visible at the bottom of the bowl (highlighted).
+- **Gradient Descent Behavior**:
+  - Always converges to the **global minimum**, regardless of initialization (if learning rate is appropriate).
+  - **No local minima** to get stuck in.
+- **Use Case**: Common in **linear regression with squared error cost**.
+
+---
+
+## 🟥 Image 2: Non-Convex Function – Multiple Local Minima
+
+### ❌ Characteristics:
+- **Shape**: Complex surface with **hills and valleys**.
+- **Function Type**: **Non-convex**
+- **Multiple Minima**: More than one **local minimum** (circled in red).
+- **Gradient Descent Behavior**:
+  - May get **stuck in a local minimum**, depending on initial values of \( w \) and \( b \).
+  - **Not guaranteed** to find the global minimum.
+- **Use Case**: Found in **complex models** such as **neural networks** and other non-linear optimization problems.
+
+---
+
+## 🔍 Summary of the Difference
+
+| Feature                        | **Convex (Image 1)**             | **Non-Convex (Image 2)**         |
+|-------------------------------|----------------------------------|----------------------------------|
+| Function Type                 | Convex                           | Non-convex                       |
+| Number of Minima              | One global minimum               | Multiple local minima            |
+| Gradient Descent Convergence | Always to global minimum         | May get stuck in local minimum   |
+| Example                       | Linear Regression (Squared Loss) | Neural Networks, Complex Models  |
+
+## 🎉 Conclusion
+
+You now:
+- Understand the connection between linear regression, cost function, and gradient descent.
+- Know how to compute the gradient terms.
+- Are ready to implement gradient descent for training linear regression models.
+
+👉 **Next**: See the algorithm in action in the final video.
+
+
