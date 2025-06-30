@@ -3,13 +3,37 @@
 
 # 🔍 Overview: Multiple Linear Regression
 
-- In the earlier version of linear regression, we used only **one feature** (e.g., size of the house) to predict the output (e.g., price of the house). but for **Multiple Linear Regression** we use multiple feature for predict value such as:
+- In the earlier version of linear regression, we used only **one feature** (e.g., size of the house) to predict the output (e.g., price of the house). but for **Multiple Linear Regression** we use **multiple feature**  such as:
   - Size of the house (`x₁`)
   - Number of bedrooms (`x₂`)
   - Number of floors (`x₃`)
   - Age of the house (`x₄`)
-
 ![alt text](image.png)
+for predict output value
+
+
+### 🔢 Notation
+# 📊 Multiple Features (Variables)
+
+
+| Size in feet² (𝑥₁) | Number of bedrooms (𝑥₂) | Number of floors (𝑥₃) | Age of home in years (𝑥₄) | Price ($1000's) |
+|:------------------:|:------------------------:|:----------------------:|:--------------------------:|:----------------:|
+|       2104         |            5             |           1            |            45              |       460        |
+|       1416         |            3             |           2            |            40              |       232        |
+|       1534         |            3             |           2            |            30              |       315        |
+|        852         |            2             |           1            |            36              |       178        |
+|       ...          |           ...            |          ...           |           ...              |       ...        |
+- \( x_j \) = jᵗʰ feature  
+- \( n = 4 \) = number of features  
+- \( \vec{x}^{(i)} \) = features of the iᵗʰ training example  
+- \( x_j^{(i)} \) = value of feature j in the iᵗʰ training example  
+
+### 🟦 Example from the table:
+
+- \( i = 2 \) → second training example  
+- \( \vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40] \)  
+- \( x_3^{(2)} = 2 \)
+
 
 # 📚 Notation
 
