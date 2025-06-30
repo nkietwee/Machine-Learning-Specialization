@@ -20,27 +20,16 @@ Size of the house (`x₁`), Number of bedrooms (`x₂`), Number of floors (`x₃
 |       ...          |           ...            |          ...           |           ...              |       ...        |
 
 
-- Let `xⱼ` be the **jᵗʰ feature** (e.g., `x₁`, `x₂`, ..., `xₙ`)
-- Let `x⁽ⁱ⁾` be the **iᵗʰ training example** (a vector of features)
-- Let `x⁽ⁱ⁾ⱼ` be the **jᵗʰ feature** of the i-th training example
-- `n` is the **number of features**
-- `w = [w₁, w₂, ..., wₙ]` is the **weight vector** (parameters)
-- `b` is the **bias** (intercept term)
-- `x = [x₁, x₂, ..., xₙ]` is the **input feature vector**
-
-
-- `$x_j$` = jᵗʰ feature  
-- `$n = 4$` = number of features  
-- `$\vec{x}^{(i)}$` = features of the iᵗʰ training example  
-- `$x_j^{(i)}$` = value of feature j in the iᵗʰ training example  
+- \( x_j \) = jᵗʰ feature  
+- \( n = 4 \) = number of features  
+- \( \vec{x}^{(i)} \) = features of the iᵗʰ training example  
+- \( x_j^{(i)} \) = value of feature \( j \) in the iᵗʰ training example  
 
 ### 🟦 Example from the table:
 
-- `$i = 2$` → second training example  
-- `$\vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40]$`  
-- `$x_3^{(2)} = 2$`
-
-
+- \( i = 2 \) → second training example  
+- \( \vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40] \)  
+- \( x_3^{(2)} = 2 \)
 
 
 ---
