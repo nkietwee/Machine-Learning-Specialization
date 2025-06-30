@@ -20,16 +20,36 @@ Size of the house (`x₁`), Number of bedrooms (`x₂`), Number of floors (`x₃
 |       ...          |           ...            |          ...           |           ...              |       ...        |
 
 
-- \( x_j \) = jᵗʰ feature  
-- \( n = 4 \) = number of features  
-- \( \vec{x}^{(i)} \) = features of the iᵗʰ training example  
-- \( x_j^{(i)} \) = value of feature \( j \) in the iᵗʰ training example  
+\[
+x_j \quad \text{= } j\text{-th feature}
+\]
+
+\[
+n = 4 \quad \text{= number of features}
+\]
+
+\[
+x^{(i)} \quad \text{= features of the } i\text{-th training example}
+\]
+
+\[
+x_j^{(i)} \quad \text{= value of feature } j \text{ in the } i\text{-th training example}
+\]
 
 ### 🟦 Example from the table:
 
-- \( i = 2 \) → second training example  
-- \( \vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40] \)  
-- \( x_3^{(2)} = 2 \)
+\[
+i = 2 \quad \Rightarrow \quad \text{second training example}
+\]
+
+\[
+x^{(2)} = [1416, 3, 2, 40]
+\]
+
+\[
+x_3^{(2)} = 2
+\]
+
 
 
 ---
