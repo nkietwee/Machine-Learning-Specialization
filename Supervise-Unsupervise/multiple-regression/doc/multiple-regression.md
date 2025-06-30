@@ -29,20 +29,19 @@ Size of the house (`x₁`), Number of bedrooms (`x₂`), Number of floors (`x₃
 - `x = [x₁, x₂, ..., xₙ]` is the **input feature vector**
 
 
-# 📊 Multiple Features (Variables)
-
 ### 🔢 Notation
 
-- \( x_j \) = jᵗʰ feature  
-- \( n = 4 \) = number of features  
-- \( \vec{x}^{(i)} \) = features of the iᵗʰ training example  
-- \( x_j^{(i)} \) = value of feature j in the iᵗʰ training example  
+- $x_j$ = jᵗʰ feature  
+- $n = 4$ = number of features  
+- $\vec{x}^{(i)}$ = features of the iᵗʰ training example  
+- $x_j^{(i)}$ = value of feature j in the iᵗʰ training example  
 
 ### 🟦 Example from the table:
 
-- \( i = 2 \) → second training example  
-- \( \vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40] \)  
-- \( x_3^{(2)} = 2 \)
+- $i = 2$ → second training example  
+- $\vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40]$  
+- $x_3^{(2)} = 2$
+
 
 
 ---
