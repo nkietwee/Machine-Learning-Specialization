@@ -245,11 +245,62 @@ w = w - 0.1 * d
 
 ➡️ Performs the operation on all elements **in parallel** → ✅ **Efficient for large models**
 
+# 🔢 Multiple Linear Regression & Vectorization – Summary
+
+## 📌 Model Representation
+
+- **Parameters**:  
+  Instead of individual weights \( w_1, w_2, \ldots, w_n \), group them into a vector \( \vec{w} \).
+
+- **Prediction Function**:  
+  \[
+  f_{\vec{w}, b}(\vec{x}) = \vec{w} \cdot \vec{x} + b
+  \]
+
+---
+# Gradient descent for multiple regression
+
+
+| Concept             | Previous Notation                                                                 | Vector Notation                                                                 |
+|---------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| **Parameters**       | \( w_1, \cdots, w_n \), \( b \)                                                  | \( \vec{w} = [w_1, \cdots, w_n] \), \( b \) still a number                       |
+| **Model**            | \( f_{\vec{w}, b}(\vec{x}) = w_1 x_1 + \cdots + w_n x_n + b \)                   | \( f_{\vec{w}, b}(\vec{x}) = \vec{w} \cdot \vec{x} + b \) *(dot product)*        |
+| **Cost Function**    | \( J(w_1, \cdots, w_n, b) \)                                                     | \( J(\vec{w}, b) \)                                                              |
+| **Gradient Descent** | repeat {<br> \( w_j = w_j - \alpha \frac{\partial}{\partial w_j} J(w_1, \cdots, w_n, b) \) <br> \( b = b - \alpha \frac{\partial}{\partial b} J(w_1, \cdots, w_n, b) \) <br>} | repeat {<br> \( w_j = w_j - \alpha \frac{\partial}{\partial w_j} J(\vec{w}, b) \) <br> \( b = b - \alpha \frac{\partial}{\partial b} J(\vec{w}, b) \) <br>} |
+
+
+| Gradient Descent      | One Feature (n = 1)                                                                                          | Multiple Features (n ≥ 2)                                                                                                 |
+|-----------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| **Weight Update**     | \( w = w - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)}) \cdot x^{(i)} \)             | For each \( j = 1 \) to \( n \):<br>\( w_j = w_j - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \) |
+| **Bias Update**       | \( b = b - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)}) \)                          | \( b = b - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)}) \)                              |
+| **Update Rule**       | Simultaneously update \( w \) and \( b \)                                                                   | Simultaneously update all \( w_j \) (for \( j = 1, \dots, n \)) and \( b \)                                               |
+| **Gradient Form**     | \( \frac{\partial}{\partial w} J(w, b) \)                                                                   | \( \frac{\partial}{\partial w_j} J(\vec{w}, b) \)                                                                         |
+
+
+# 📌 An Alternative to Gradient Descent
+
+## 🔷 Normal Equation
+
+- Only for **linear regression**
+- Solves for parameters **w** and **b** without iterations
+
+### ❗ Disadvantages
+
+- Doesn’t generalize to other learning algorithms  
+- Slow when the number of features is large (**> 10,000**)
+
+---
+
+## 💡 What You Need to Know
+
+- The **normal equation method** may be used in some machine learning libraries that implement linear regression.
+- **Gradient descent** is the **recommended method** for finding parameters \( w, b \) in most cases.
+
+> **Normal Equation** is a mathematical method used to find the parameters of a Linear Regression model without using iterations.
+
 # 🧾 Terminology
 
 - **Multiple Linear Regression**: Linear regression with **multiple input features**
 - **Univariate Regression**: Linear regression with a **single feature**
 - Note: **"Multivariate regression"** refers to a different concept (not used here)
 
-
-## Gradient descent for multiple linear regression
