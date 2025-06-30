@@ -4,15 +4,10 @@
 # 🔍 Overview: Multiple Linear Regression
 
 - In the earlier version of linear regression, we used only **one feature** (e.g., size of the house) to predict the output (e.g., price of the house). but for **Multiple Linear Regression** we use **multiple feature**  such as:
-  - Size of the house (`x₁`)
-  - Number of bedrooms (`x₂`)
-  - Number of floors (`x₃`)
-  - Age of the house (`x₄`)
-![alt text](image.png)
-for predict output value
+Size of the house (`x₁`), Number of bedrooms (`x₂`), Number of floors (`x₃`) and Age of the house (`x₄`) for predict output value
 
 
-### 🔢 Notation
+### 📚 Notation
 # 📊 Multiple Features (Variables)
 
 
@@ -23,6 +18,21 @@ for predict output value
 |       1534         |            3             |           2            |            30              |       315        |
 |        852         |            2             |           1            |            36              |       178        |
 |       ...          |           ...            |          ...           |           ...              |       ...        |
+
+
+- Let `xⱼ` be the **jᵗʰ feature** (e.g., `x₁`, `x₂`, ..., `xₙ`)
+- Let `x⁽ⁱ⁾` be the **iᵗʰ training example** (a vector of features)
+- Let `x⁽ⁱ⁾ⱼ` be the **jᵗʰ feature** of the i-th training example
+- `n` is the **number of features**
+- `w = [w₁, w₂, ..., wₙ]` is the **weight vector** (parameters)
+- `b` is the **bias** (intercept term)
+- `x = [x₁, x₂, ..., xₙ]` is the **input feature vector**
+
+
+# 📊 Multiple Features (Variables)
+
+### 🔢 Notation
+
 - \( x_j \) = jᵗʰ feature  
 - \( n = 4 \) = number of features  
 - \( \vec{x}^{(i)} \) = features of the iᵗʰ training example  
@@ -34,16 +44,6 @@ for predict output value
 - \( \vec{x}^{(2)} = [1416,\ 3,\ 2,\ 40] \)  
 - \( x_3^{(2)} = 2 \)
 
-
-# 📚 Notation
-
-- Let `xⱼ` be the **j-th feature** (e.g., `x₁`, `x₂`, ..., `xₙ`)
-- Let `x⁽ⁱ⁾` be the **i-th training example** (a vector of features)
-- Let `x⁽ⁱ⁾ⱼ` be the **j-th feature** of the i-th training example
-- `n` is the **number of features**
-- `w = [w₁, w₂, ..., wₙ]` is the **weight vector** (parameters)
-- `b` is the **bias** (intercept term)
-- `x = [x₁, x₂, ..., xₙ]` is the **input feature vector**
 
 ---
 
