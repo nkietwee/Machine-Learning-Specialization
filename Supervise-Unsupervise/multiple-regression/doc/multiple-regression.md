@@ -296,7 +296,6 @@ w = w - 0.1 * d
 - The **normal equation method** may be used in some machine learning libraries that implement linear regression.
 - **Gradient descent** is the **recommended method** for finding parameters \( w, b \) in most cases.
 
-> **Normal Equation** is a mathematical method used to find the parameters of a Linear Regression model without using iterations.
 
 # 🧾 Terminology
 
