@@ -279,7 +279,7 @@ w = w - 0.1 * d
 
 # 📌 An Alternative to Gradient Descent
 
-## 🔷 Normal Equation
+## 🔷 [Normal Equation](./normal-equation.md)
 
 - Only for **linear regression**
 - Solves for parameters **w** and **b** without iterations
