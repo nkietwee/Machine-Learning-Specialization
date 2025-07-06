@@ -14,7 +14,7 @@ Size of the house (`x₁`), Number of bedrooms (`x₂`), Number of floors (`x₃
 | Size in feet² (𝑥₁) | Number of bedrooms (𝑥₂) | Number of floors (𝑥₃) | Age of home in years (𝑥₄) | Price ($1000's) |
 |:------------------:|:------------------------:|:----------------------:|:--------------------------:|:----------------:|
 |       2104         |            5             |           1            |            45              |       460        |
-|       1416         |            3             |           2            |            40              |       232        |
+|       1416         |            3             |           2            |            40       fด       |       232        |
 |       1534         |            3             |           2            |            30              |       315        |
 |        852         |            2             |           1            |            36              |       178        |
 |       ...          |           ...            |          ...           |           ...              |       ...        |
@@ -290,6 +290,95 @@ w = w - 0.1 * d
 - Slow when the number of features is large (**> 10,000**)
 
 ---
+
+# Feature Scaling
+![alt text](image-7.png)
+This example demonstrates how the **scale of input features** affects the **model parameters** and the behavior of **gradient descent**.
+
+---
+
+## 🏠 Predicting House Price
+
+We want to predict house price using:
+
+- \( x_1 \): Size of house (in square feet)  
+  - Range: **300 – 2000** → *large range*
+- \( x_2 \): Number of bedrooms  
+  - Range: **0 – 5** → *small range*
+
+> **Training example**:  
+> \( x_1 = 2000 \), \( x_2 = 5 \), actual price = **\$500k**
+
+---
+## 📊 Comparison of Parameter Scenarios (Transposed)
+
+|                         | **Unbalanced Parameters**                           | **Reasonable Parameters**                          |
+|-------------------------|-----------------------------------------------------|----------------------------------------------------|
+| **Parameters**          | \( w_1 = 50 \)<br>,\( w_2 = 0.1 \)<br>,\( b = 50 \)       | \( w_1 = 0.1 \)<br>,\( w_2 = 50 \)<br>,\( b = 50 \)      |
+| **Prediction Formula**  | \( 50 \cdot 2000 + 0.1 \cdot 5 + 50 \)              | \( 0.1 \cdot 2000 + 50 \cdot 5 + 50 \)             |
+| **Computation Result**  | \( 100{,}000K + 0.5K + 50K = 100{,}050.5K \)        | \( 200K + 250K + 50K = 500K \)                     |
+| **Outcome**             | - **Way too high** → overestimation <br>- **Poor parameter choice** due to unscaled features | ✅ Accurate – matches true <br> - **More reasonable parameter values** due to awareness of feature rangeprice                  |
+
+---
+
+## 🧠 Insight: Feature Ranges Affect Parameter Magnitude
+
+- Large-range feature (like size) → smaller weight
+- Small-range feature (like bedrooms) → larger weight
+
+This mismatch can distort the cost function and affect learning.
+
+---
+
+## 🚀 Why Feature Scaling Matters
+![alt text](image-8.png)
+
+🔶 Feature Space (Input Features)
+🔸 Top-left (Unscaled Features)
+Features:
+
+x₁: size in ft² (ranging from 300 to 2000)
+
+x₂: number of bedrooms (ranging from 0 to 5)
+
+The two features have very different ranges.
+
+This causes the scatterplot to be stretched along the x-axis and compressed along the y-axis.
+
+As a result, gradient descent may converge slowly or inefficiently.
+
+🔸 Bottom-left (Rescaled Features)
+The same features are rescaled to similar ranges, typically from 0 to 1.
+
+Both x₁ and x₂ are normalized so that their magnitudes are comparable.
+
+The data points become more evenly distributed.
+
+Gradient descent becomes more stable and converges faster.
+
+Without scaling:
+
+- Gradient descent struggles
+- Contour plots are **elongated ellipses**
+- Optimization path is inefficient
+
+With scaling:
+
+- Rescale features (e.g., to [0, 1])
+- Contour plots become **more circular**
+- Gradient descent converges **faster**
+
+---
+
+## 🛠 Next Step
+
+Implement feature scaling using techniques like:
+
+- **Min-max normalization**
+- **Standardization (z-score)**
+
+We'll explore those in the next section!
+
 
 ## 💡 What You Need to Know
 
