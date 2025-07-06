@@ -279,12 +279,12 @@ w = w - 0.1 * d
 
 # 📌 An Alternative to Gradient Descent
 
-## 🔷 [Normal Equation](./normal-equation.md)
+## [Normal Equation](./normal-equation.md)
 
 - Only for **linear regression**
 - Solves for parameters **w** and **b** without iterations
 
-### ❗ Disadvantages
+### Disadvantages
 
 - Doesn’t generalize to other learning algorithms  
 - Slow when the number of features is large (**> 10,000**)
@@ -292,9 +292,9 @@ w = w - 0.1 * d
 ---
 
 # Feature Scaling
-![alt text](image-7.png)
 This example demonstrates how the **scale of input features** affects the **model parameters** and the behavior of **gradient descent**.
 
+![alt text](image-7.png)
 ---
 
 ## 🏠 Predicting House Price
@@ -333,40 +333,23 @@ This mismatch can distort the cost function and affect learning.
 ## 🚀 Why Feature Scaling Matters
 ![alt text](image-8.png)
 
-🔶 Feature Space (Input Features)
-🔸 Top-left (Unscaled Features)
-Features:
+### 🔶 Feature Space (Input Features)
 
-x₁: size in ft² (ranging from 300 to 2000)
+#### 🔸 Top-left (Unscaled Features)
 
-x₂: number of bedrooms (ranging from 0 to 5)
+- Features:
+  - `x₁`: size in ft² (ranging from 300 to 2000)
+  - `x₂`: number of bedrooms (ranging from 0 to 5)
+- The two features have very different ranges.
+- This causes the scatterplot to be stretched along the x-axis and compressed along the y-axis.
+- As a result, gradient descent may converge slowly or inefficiently.
 
-The two features have very different ranges.
+#### 🔸 Bottom-left (Rescaled Features)
 
-This causes the scatterplot to be stretched along the x-axis and compressed along the y-axis.
-
-As a result, gradient descent may converge slowly or inefficiently.
-
-🔸 Bottom-left (Rescaled Features)
-The same features are rescaled to similar ranges, typically from 0 to 1.
-
-Both x₁ and x₂ are normalized so that their magnitudes are comparable.
-
-The data points become more evenly distributed.
-
-Gradient descent becomes more stable and converges faster.
-
-Without scaling:
-
-- Gradient descent struggles
-- Contour plots are **elongated ellipses**
-- Optimization path is inefficient
-
-With scaling:
-
-- Rescale features (e.g., to [0, 1])
-- Contour plots become **more circular**
-- Gradient descent converges **faster**
+- The same features are **rescaled** to similar ranges, typically from 0 to 1.
+- Both `x₁` and `x₂` are normalized so that their magnitudes are comparable.
+- The data points become more evenly distributed.
+- Gradient descent becomes more stable and converges faster.
 
 ---
 
