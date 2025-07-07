@@ -297,19 +297,23 @@ This example demonstrates how the **scale of input features** affects the **mode
 ![alt text](image-7.png)
 ---
 
-## 🏠 Predicting House Price
+# 🏠 Feature and Parameter Values
 
-We want to predict house price using:
+## 📌 Model Formula
+```code
+price = w₁·x₁ + w₂·x₂ + b
+```
+- **x₁**: size (in feet²), range: `300–2000` → large  
+- **x₂**: number of bedrooms, range: `0–5` → small
 
-- \( x_1 \): Size of house (in square feet)  
-  - Range: **300 – 2000** → *large range*
-- \( x_2 \): Number of bedrooms  
-  - Range: **0 – 5** → *small range*
+## 🏡 One Training Example
+x₁ = 2000, x₂ = 5, price = $500k
+```code
+price = w₁·2000 + w₂·5 + b
+```
 
-> **Training example**:  
-> \( x_1 = 2000 \), \( x_2 = 5 \), actual price = **\$500k**
+## 📏 Size of the Parameters `w₁`, `w₂`?
 
----
 ## 📊 Comparison of Parameter Scenarios (Transposed)
 
 |                         | **Unbalanced Parameters**                           | **Reasonable Parameters**                          |
