@@ -289,6 +289,12 @@ w = w - 0.1 * d
 - Doesn’t generalize to other learning algorithms  
 - Slow when the number of features is large (**> 10,000**)
 
+## 💡 What You Need to Know
+
+- The **normal equation method** may be used in some machine learning libraries that implement linear regression.
+- **Gradient descent** is the **recommended method** for finding parameters \( w, b \) in most cases.
+
+> **Normal Equation** is a mathematical method used to find the parameters of a Linear Regression model without using iterations.
 ---
 
 # Feature Scaling
@@ -397,50 +403,100 @@ x_{\text{norm}} = \frac{x}{x_{\text{min}}}
 
 ---
 
-### 3. **Z-Score Normalization (Standardization)**
-![alt text](image-10.png)
-- Centers around 0 and scales to unit variance.
-- Formula:
+# 🔁 Gradient Descent Convergence
+
+## 🧠 How to Know if Gradient Descent is Working?
+
+Gradient descent aims to find parameters **w** and **b** that minimize the cost function **J(w, b)**. To evaluate if it’s converging properly:
+
+
+## 📈 Plot the Cost Function Over Iterations
+![alt text](image-12.png)
+
+- Plot **J(w, b)** on the **vertical axis**
+- Plot **number of iterations** on the **horizontal axis**
+- This is called a **learning curve**
+
+If gradient descent is working well:
+- **J should decrease** with every iteration
+- The curve should eventually **flatten**, indicating convergence
+
+---
+
+## 🚨 What If J Increases?
+
+- Could mean:
+  - 🔺 **Learning rate α is too large**
+  - 🐞 **Bug** in the implementation
+
+---
+
+
+## ⏳ When Has It Converged?
+
+- If **J stops decreasing significantly**, gradient descent has likely converged
+- Example: after 300–400 iterations, curve flattens
+
+> Convergence speed varies by application:
+> - Some may converge in **30 iterations**
+> - Others may need **100,000+ iterations**
+
+---
+
+## 🧪 Automatic Convergence Test
+This section explains a simple and practical test to automatically determine if gradient descent has converged, using a small number called epsilon (ε).
+
+### 🔍 What is ε (epsilon)?
+
+- **Epsilon (ε)** is a small positive number used as a **threshold** for detecting convergence.
+- Common value:  
   \[
-  x_{\text{zscore}} = \frac{x - \mu}{σ}
+  \varepsilon = 10^{-3} = 0.001
   \]
-- Example:
-  - `x₁ → μ = 600, σ = 450`  
-    → `x₁_zscore ∈ [-0.67, 3.1]`
-  - `x₂ → μ = 2.3, σ = 1.4`  
-    → `x₂_zscore ∈ [-1.6, 1.9]`
-
----
-
-## 🎯 When to Scale
-![alt text](image-11.png)
-- Aim for features to lie within approximately `[-1, 1]`
-- Loose rule: `[−3, 3]` is fine too
-- **Must scale** if:
-  - Feature ranges differ significantly (e.g., `x₃ ∈ [−100, 100]`)
-  - Very small values (e.g., `x₄ ∈ [−0.001, 0.001]`)
-  - Large centered values (e.g., `x₅ ∈ [98.6, 105]` for body temp)
-
----
-
-## ✅ Key Takeaways
-
-- **Scaling improves gradient descent performance**
-- Almost never harmful to scale features
-- When in doubt → **Scale**
-
----
 
 
+### ✅ Convergence Condition
+
+During gradient descent, you compute the cost function \( J(w, b) \) at each iteration.
+
+If the **change in cost** between two successive iterations is **less than or equal to ε**, we declare that gradient descent has **converged**:
+
+\[
+|J^{(i)} - J^{(i-1)}| \leq \varepsilon \quad \Rightarrow \quad \text{converged}
+\]
+
+> This means gradient descent is no longer making significant improvements and has likely reached or approached the minimum of the cost function.
+
+### 🧠 Why This Works
+
+- A small change in cost means the gradient is very small, and updates to parameters are minimal.
+- This typically happens when gradient descent is near a **local or global minimum**.
+- If updates aren’t helping much, there’s no need to keep running — we can safely stop.
+
+### 🧷 When to Use It
+
+- Useful in **automated training pipelines** to stop training without manual checks.
+- Saves time when working with large models or datasets that require thousands of iterations.
+- However, it's still good practice to **visually inspect the learning curve** to verify proper convergence and spot any unexpected behavior.
+
+
+### 🔚 Summary
+
+- Use ε (epsilon) to define how small the cost improvement must be to stop.
+- If cost doesn’t decrease significantly: **stop training**.
+- It’s a simple and effective method to detect **convergence**.
+- Combine with **learning curve plots** for better reliability.
+
+
+## 🎯 Key Takeaways
+- Always monitor J vs. iterations
+- If curve flattens → likely converged
+- If J increases → check α or code
+- Use visual inspection over automated tests for better insight
 
 
 
-## 💡 What You Need to Know
 
-- The **normal equation method** may be used in some machine learning libraries that implement linear regression.
-- **Gradient descent** is the **recommended method** for finding parameters \( w, b \) in most cases.
-
-> **Normal Equation** is a mathematical method used to find the parameters of a Linear Regression model without using iterations.
 
 
 
