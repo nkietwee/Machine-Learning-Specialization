@@ -494,6 +494,143 @@ If the **change in cost** between two successive iterations is **less than or eq
 - If J increases → check α or code
 - Use visual inspection over automated tests for better insight
 
+# 🚀 Choosing a Good Learning Rate (α)
+![alt text](image-13.png)
+![alt text](image-14.png)
+
+Your learning algorithm's performance greatly depends on the **learning rate (α)**. Choosing it properly ensures **faster and stable convergence**. Here's how to do it:
+
+---
+
+## ⚠️ What Happens with a Bad Learning Rate?
+
+### Too Small (α is too low):
+- Gradient descent runs **very slowly**
+- Takes a large number of iterations to converge
+
+### Too Large (α is too high):
+- **Cost function may increase** instead of decrease
+- Gradient descent might **never converge**
+- Can cause **oscillation** or **divergence**
+
+---
+
+## 📈 Diagnosing with the Cost Plot
+
+- If the cost **goes up and down**, gradient descent is likely **not working**.
+- This may be due to:
+  - ❌ A bug in the code
+  - 🚫 Learning rate too large
+
+---
+
+## 🎯 Understanding the Overshoot Problem
+
+- Imagine cost \( J(w_1) \) vs. parameter \( w_1 \)
+- A large α can cause updates to **overshoot** the minimum:
+  - Jumping back and forth across the minimum
+  - Failing to settle down
+
+---
+
+## 🛠️ Debugging Tip
+
+- Try setting **α to a very small value**
+- If cost **still doesn’t decrease every iteration**, it likely means:
+  - ⚠️ There’s a **bug in the implementation**
+
+### Example of a bug:
+```python
+# Wrong:
+w1 = w1 + α * derivative  # This increases cost
+
+# Correct:
+w1 = w1 - α * derivative  # This decreases cost
+```
+## 🔍 Practical Strategy to Choose α
+1. Try multiple values of α
+
+- Start with 0.001
+- Then try ~3× larger values:
+- 0.003, 0.03, 0.3 etc.
+
+2. For each value:
+- Run gradient descent for a few iterations
+- Plot the cost function vs. iterations
+
+3. Pick the best α:
+- Look for fast and smooth decrease in cost
+- Avoid overshooting or flat (slow) curves
+
+4. Tip:
+
+- Try values until you find one that’s too small
+- Then go up until you find one that’s too large
+- Choose something slightly smaller than the largest reasonable value
+
+## ✅ Summary
+
+| Learning Rate α | Behavior                       |
+| --------------- | ------------------------------ |
+| Too Small       | Converges very slowly          |
+| Too Large       | May diverge or oscillate       |
+| Just Right      | Smooth, rapid decrease in cost |
+
+
+
+# Choosing the Learning Rate (α) for Gradient Descent
+
+## Key Principles
+- **Goldilocks Principle**:
+  - α too small → Slow convergence
+  - α too large → Divergence (cost increases)
+  - α just right → Efficient convergence
+
+## Diagnostic Signs
+| Observation | Likely Issue | Action |
+|-------------|--------------|--------|
+| Cost oscillates | α slightly too large | Reduce α by 3x |
+| Cost consistently increases | α too large or sign error in code | Check code & reduce α |
+| Cost decreases very slowly | α too small | Increase α gradually |
+
+# Practical Workflow
+1. Initialize with α=0.01
+2. Monitor learning curve:
+- Good: Steady exponential decay
+- Bad: Oscillations/plateaus
+3. Adjust using 3x rule:
+- Too slow? Try 3x larger α
+- Oscillating? Try α/3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
