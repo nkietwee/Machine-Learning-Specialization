@@ -357,14 +357,82 @@ This mismatch can distort the cost function and affect learning.
 
 ---
 
-## 🛠 Next Step
+# 📏 Feature Scaling
 
-Implement feature scaling using techniques like:
+Feature scaling is used to bring features with very different ranges into similar scales, which helps **gradient descent converge faster** and more reliably.
 
-- **Min-max normalization**
-- **Standardization (z-score)**
+---
 
-We'll explore those in the next section!
+## 🧮 Methods of Feature Scaling
+
+### 1. **Rescaling (Min-Max Normalization)**
+- Divide each feature value by its maximum or minimum value .
+- Formula:
+\[
+x_{\text{norm}} = \frac{x}{x_{\text{max}}}
+\quad \text{or} \quad
+x_{\text{norm}} = \frac{x}{x_{\text{min}}}
+\]
+
+- Example:
+  - `x₁ ∈ [300, 2000] → x₁_scaled = x₁ / 2000`
+  - `x₂ ∈ [0, 5] → x₂_scaled = x₂ / 5`
+- Resulting scaled features fall within `[0, 1]`
+
+---
+
+### 2. **Mean Normalization**
+![alt text](image-9.png)
+- Centers features around 0 by subtracting the mean.
+- Formula:
+  \[
+  x_{\text{norm}} = \frac{x - \mu}{\text{max} - \text{min}}
+  \]
+
+- Example:
+  - `x₁ → μ = 600`, range = 300–2000  
+    → `x₁_normalized ∈ [-0.18, 0.82]`
+  - `x₂ → μ = 2.3`, range = 0–5  
+    → `x₂_normalized ∈ [-0.46, 0.54]`
+
+---
+
+### 3. **Z-Score Normalization (Standardization)**
+![alt text](image-10.png)
+- Centers around 0 and scales to unit variance.
+- Formula:
+  \[
+  x_{\text{zscore}} = \frac{x - \mu}{σ}
+  \]
+- Example:
+  - `x₁ → μ = 600, σ = 450`  
+    → `x₁_zscore ∈ [-0.67, 3.1]`
+  - `x₂ → μ = 2.3, σ = 1.4`  
+    → `x₂_zscore ∈ [-1.6, 1.9]`
+
+---
+
+## 🎯 When to Scale
+![alt text](image-11.png)
+- Aim for features to lie within approximately `[-1, 1]`
+- Loose rule: `[−3, 3]` is fine too
+- **Must scale** if:
+  - Feature ranges differ significantly (e.g., `x₃ ∈ [−100, 100]`)
+  - Very small values (e.g., `x₄ ∈ [−0.001, 0.001]`)
+  - Large centered values (e.g., `x₅ ∈ [98.6, 105]` for body temp)
+
+---
+
+## ✅ Key Takeaways
+
+- **Scaling improves gradient descent performance**
+- Almost never harmful to scale features
+- When in doubt → **Scale**
+
+---
+
+
+
 
 
 ## 💡 What You Need to Know
