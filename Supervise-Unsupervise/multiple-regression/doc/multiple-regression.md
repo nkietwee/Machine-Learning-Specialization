@@ -573,11 +573,22 @@ w1 = w1 - α * derivative  # This decreases cost
 | Just Right      | Smooth, rapid decrease in cost |
 
 
+# Feature engineering
+Feature engineering is a machine learning technique that leverages data to **create new variables** that aren’t in the training set. It can produce new features for both supervised and unsupervised learning, with the goal of simplifying and speeding up data transformations while also enhancing model accuracy. Feature engineering is required when working with machine learning models. Regardless of the data or architecture, a terrible feature will have a direct impact on your model.
 
+To better understand it, let’s look at a simple example. Below are the prices of properties in x city. It shows the area of the house and total price.
 
+![alt text](image-15.png)
+This data might have some errors or might be incorrect but not all sources on the internet are correct. To begin, we’ll add a new column to display the cost per square foot.
 
+![alt text](image-16.png)
+This new feature will help us understand a lot about our data. So, we have a new column which shows cost per square foot. There are three main ways you can find any error. 
 
+That's feature engineering. It turns out that this one flavor of feature engineering, that allow you to fit not just straight lines, but curves, non-linear functions to your data.
 
+ref : https://www.datacamp.com/tutorial/feature-engineering
+https://builtin.com/articles/feature-engineering
+https://www.geeksforgeeks.org/machine-learning/what-is-feature-engineering/
 
 
 
