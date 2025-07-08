@@ -502,6 +502,7 @@ Your learning algorithm's performance greatly depends on the **learning rate (α
 
 ---
 
+
 ## ⚠️ What Happens with a Bad Learning Rate?
 
 ### Too Small (α is too low):
@@ -548,52 +549,6 @@ w1 = w1 + α * derivative  # This increases cost
 w1 = w1 - α * derivative  # This decreases cost
 ```
 ## 🔍 Practical Strategy to Choose α
-1. Try multiple values of α
-
-- Start with 0.001
-- Then try ~3× larger values:
-- 0.003, 0.03, 0.3 etc.
-
-2. For each value:
-- Run gradient descent for a few iterations
-- Plot the cost function vs. iterations
-
-3. Pick the best α:
-- Look for fast and smooth decrease in cost
-- Avoid overshooting or flat (slow) curves
-
-4. Tip:
-
-- Try values until you find one that’s too small
-- Then go up until you find one that’s too large
-- Choose something slightly smaller than the largest reasonable value
-
-## ✅ Summary
-
-| Learning Rate α | Behavior                       |
-| --------------- | ------------------------------ |
-| Too Small       | Converges very slowly          |
-| Too Large       | May diverge or oscillate       |
-| Just Right      | Smooth, rapid decrease in cost |
-
-
-
-# Choosing the Learning Rate (α) for Gradient Descent
-
-## Key Principles
-- **Goldilocks Principle**:
-  - α too small → Slow convergence
-  - α too large → Divergence (cost increases)
-  - α just right → Efficient convergence
-
-## Diagnostic Signs
-| Observation | Likely Issue | Action |
-|-------------|--------------|--------|
-| Cost oscillates | α slightly too large | Reduce α by 3x |
-| Cost consistently increases | α too large or sign error in code | Check code & reduce α |
-| Cost decreases very slowly | α too small | Increase α gradually |
-
-# Practical Workflow
 1. Initialize with α=0.01
 2. Monitor learning curve:
 - Good: Steady exponential decay
@@ -602,10 +557,20 @@ w1 = w1 - α * derivative  # This decreases cost
 - Too slow? Try 3x larger α
 - Oscillating? Try α/3
 
+## Diagnostic Signs
+| Observation | Likely Issue | Action |
+|-------------|--------------|--------|
+| Cost oscillates | α slightly too large | Reduce α by 3x |
+| Cost consistently increases | α too large or sign error in code | Check code & reduce α |
+| Cost decreases very slowly | α too small | Increase α gradually |
 
+## ✅ Summary
 
-
-
+| Learning Rate α | Behavior                       |
+| --------------- | ------------------------------ |
+| Too Small       | Converges very slowly          |
+| Too Large       | May diverge or oscillate       |
+| Just Right      | Smooth, rapid decrease in cost |
 
 
 
