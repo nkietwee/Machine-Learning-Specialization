@@ -1,3 +1,4 @@
+# Machine Learning
 ### Definition of Machine Learning
 - **Arthur Samuel** defined ML as “the field of study that gives computers the ability to learn without being explicitly programmed.”
 

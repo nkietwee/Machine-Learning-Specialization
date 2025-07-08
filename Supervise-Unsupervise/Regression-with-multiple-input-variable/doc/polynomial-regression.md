@@ -3,7 +3,7 @@
 ---
 
 ## 🔹 From Linear to Polynomial Regression
-![alt text](image-1.png)
+![alt text](image-17.png)
 - Linear regression fits **straight lines**, but real-world data often needs **curved models**.
 - **Polynomial regression** fits curves by adding powers (or roots) of the input feature `x`.
 
